@@ -1,11 +1,17 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Programs', href: '#programs' },
+  { label: 'Schools', href: '#schools' },
   { label: 'Gallery', href: '#gallery' },
-  { label: 'Rahab Mitchell', href: '#director' },
+  { label: 'Theatre Director', href: '#director' },
+  {
+    label: 'Executive Director',
+    href: 'https://about.me/shani_sambrano/',
+    external: true,
+  },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -16,7 +22,7 @@ const galleryImages = [
   '/jawbone/IMG_20231215_193807936.jpg',
   '/jawbone/IMG_20231215_193813457_MP.jpg',
   '/jawbone/IMG_20231216_190827654.jpg',
-  '/jawbone/IMG_20231216_19133196.jpg',
+  '/jawbone/IMG_20231216_191133196.jpg',
   '/jawbone/IMG_20231216_201749077.jpg',
   '/jawbone/IMG_20231216_201823858.jpg',
   '/jawbone/IMG_20231216_201923211_MP.jpg',
@@ -90,7 +96,21 @@ function SectionHeading({ eyebrow, title, text, center = false }) {
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [leadPopupOpen, setLeadPopupOpen] = useState(false)
   const year = useMemo(() => new Date().getFullYear(), [])
+
+  useEffect(() => {
+    const alreadyShown = sessionStorage.getItem('jawboneLeadPopupShown')
+
+    if (!alreadyShown) {
+      const timer = setTimeout(() => {
+        setLeadPopupOpen(true)
+        sessionStorage.setItem('jawboneLeadPopupShown', 'true')
+      }, 1800)
+
+      return () => clearTimeout(timer)
+    }
+  }, [])
 
   return (
     <div className="app-shell">
@@ -115,7 +135,12 @@ function App() {
 
           <nav className="desktop-nav">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href}>
+              <a
+                key={item.href}
+                href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noreferrer' : undefined}
+              >
                 {item.label}
               </a>
             ))}
@@ -138,7 +163,13 @@ function App() {
           <div className="mobile-nav">
             <div className="container mobile-nav-inner">
               {navItems.map((item) => (
-                <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noreferrer' : undefined}
+                  onClick={() => setMenuOpen(false)}
+                >
                   {item.label}
                 </a>
               ))}
@@ -151,58 +182,53 @@ function App() {
       </header>
 
       <main>
-        <section id="home" className="hero-section">
-          <div className="container hero-grid">
-            <div className="hero-copy">
-              <div className="hero-pill">Official 501(c)(3) nonprofit theatre organization</div>
-              <h1>
-                Theatre that inspires,
-                <span> educates, and connects.</span>
-              </h1>
-              <p>
-                Jawbone Hill Theatre creates engaging live performances, community storytelling
-                experiences, arts education, and library-based workshops that bring theatre to
-                audiences of all ages.
-              </p>
+        <section id="home" className="hero-section hero-section-centered">
+          <div className="hero-background">
+            <HeroVideo
+              src="/jawbone/JHT_logo_sparkles.mp4"
+              className="hero-background-video"
+            />
+          </div>
 
-              <div className="hero-actions">
-                <a href="#programs" className="button primary">
-                  Explore Programs
-                </a>
-                <a href="#director" className="button secondary">
-                  Meet Rahab Mitchell
-                </a>
-              </div>
-
-              <div className="stats-grid">
-                <div className="stat-card">
-                  <h3>Live Performances</h3>
-                  <p>Plays and productions that entertain, challenge, and bring audiences together.</p>
-                </div>
-                <div className="stat-card">
-                  <h3>Arts Education</h3>
-                  <p>Workshops that build confidence, teamwork, creativity, and expression.</p>
-                </div>
-                <div className="stat-card">
-                  <h3>Community Programs</h3>
-                  <p>Library and outreach experiences that expand access to the performing arts.</p>
-                </div>
-              </div>
+          <div className="container hero-center-content">
+            <div className="hero-logo-feature">
+              <img
+                src="/jawbone/Jawbone_Hill_Logo_New.png"
+                alt="Jawbone Hill Theatre logo"
+              />
             </div>
 
-            <div className="hero-visual-wrap">
-              <HeroVideo
-                src="/jawbone/JHT_logo_sparkles.mp4"
-                className="hero-banner"
-              />
-              <div className="hero-callout">
-                <p className="callout-label">Based in Inglewood, California</p>
-                <h3>Community-centered theatre for stage, story, and creative learning</h3>
-                <p>
-                  Jawbone Hill Theatre combines performance, education, and outreach to create a
-                  vibrant creative home for audiences, students, and families.
-                </p>
-              </div>
+            <div className="hero-pill">Official 501(c)(3) Nonprofit Theatre Organization</div>
+
+            <h1>
+              Theatre that inspires, educates, and connects.
+            </h1>
+
+            <p>
+              Jawbone Hill Theatre brings live performance, storytelling, visual arts, and
+              theatre-based learning experiences to schools, libraries, and communities.
+            </p>
+
+            <div className="hero-actions hero-actions-centered">
+              <a href="#schools" className="button primary">
+                Theatre in Schools Program
+              </a>
+              <button
+                type="button"
+                className="button secondary"
+                onClick={() => setLeadPopupOpen(true)}
+              >
+                Request Program Information
+              </button>
+            </div>
+
+            <div className="hero-school-highlight">
+              <p className="callout-label">Now developing school partnerships</p>
+              <h3>Charter School Arts & VAPA Program</h3>
+              <p>
+                A school-based theatre and visual arts program designed to support student voice,
+                literacy, confidence, creativity, collaboration, and final showcase experiences.
+              </p>
             </div>
           </div>
         </section>
@@ -215,6 +241,10 @@ function App() {
                 title="A nonprofit theatre rooted in access, artistic excellence, and community growth."
                 text="Jawbone Hill Theatre is a community-focused performing arts organization committed to making theatre affordable, inclusive, and enriching. Through performances, workshops, outreach, and community programs, the organization uses theatre as a catalyst for creativity, empowerment, and cultural connection."
               />
+
+              <p className="section-text">
+                Jawbone Hill Theatre was co-founded by Rahab Mitchell and Shani Sambrano to expand access to theatre, storytelling, arts education, and community-based creative programming.
+              </p>
 
               <div className="stacked-cards">
                 <article className="content-card">
@@ -256,7 +286,7 @@ function App() {
 
             <div className="program-grid">
               <article className="program-card">
-                <SiteImage src="/jawbone/IMG_20231216_19133196.jpg" alt="Mainstage productions" className="program-image" />
+                <SiteImage src="/jawbone/IMG_20231216_191133196.jpg" alt="Mainstage productions" className="program-image" />
                 <div className="program-copy">
                   <h3>Mainstage Productions</h3>
                   <p>
@@ -305,7 +335,114 @@ function App() {
             </div>
           </div>
         </section>
+        <section id="schools" className="section section-gold">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Theatre in Schools"
+              title="Charter School Arts & VAPA Program"
+              text="Jawbone Hill Theatre partners with charter schools, arts academies, libraries, and community programs to bring theatre, storytelling, visual arts, and performance-based literacy experiences to students."
+              center
+            />
 
+            <div className="program-grid">
+              <article className="program-card">
+                <div className="program-copy">
+                  <h3>In-School Theatre & Visual Arts Program</h3>
+                  <p>
+                    A semester-based program designed to help schools strengthen student voice,
+                    literacy, collaboration, confidence, and creative expression through theatre
+                    and visual arts instruction.
+                  </p>
+                  <ul className="feature-list">
+                    <li>16-week theatre and visual arts curriculum</li>
+                    <li>Aligned with VAPA, literacy, SEL, and arts integration goals</li>
+                    <li>Includes storytelling, monologues, improvisation, spoken word, visual expression, and a final student showcase</li>
+                    <li>Designed for charter schools, arts academies, and enrichment programs</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article className="program-card">
+                <div className="program-copy">
+                  <h3>Workshops & School Performances</h3>
+                  <p>
+                    Flexible school and library programs can be customized for grade level,
+                    school theme, cultural celebration, literacy goals, or community event.
+                  </p>
+                  <ul className="feature-list">
+                    <li>One-day theatre and storytelling workshops</li>
+                    <li>After-school enrichment programs</li>
+                    <li>Student productions and showcase support</li>
+                    <li>Teacher professional development for arts integration</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+
+            <div className="mini-grid">
+              <div className="mini-card">
+                <h4>Student Voice</h4>
+                <p>Students build confidence through storytelling, public speaking, character work, and performance.</p>
+              </div>
+              <div className="mini-card">
+                <h4>Literacy Through Performance</h4>
+                <p>Theatre supports reading comprehension, vocabulary, fluency, writing, and interpretation of text.</p>
+              </div>
+              <div className="mini-card">
+                <h4>Creative Collaboration</h4>
+                <p>Students learn teamwork, listening, problem-solving, empathy, and ensemble-building.</p>
+              </div>
+            </div>
+
+            <div className="school-intake-card" id="school-intake">
+              <div>
+                <p className="eyebrow">School Partnership Intake</p>
+                <h3>Invite Jawbone Hill Theatre to your school</h3>
+                <p>
+                  Use the form below to tell us about your school, grade levels, and program interests.
+                  We will follow up with next steps, program options, and availability.
+                </p>
+              </div>
+
+              <form className="intake-form">
+                <input type="text" name="schoolName" placeholder="School or organization name" />
+                <input type="text" name="contactName" placeholder="Contact person" />
+                <input type="email" name="email" placeholder="Email address" />
+                <input type="tel" name="phone" placeholder="Phone number" />
+                <input type="text" name="city" placeholder="City" />
+                <select name="programInterest" defaultValue="">
+                  <option value="" disabled>Program interest</option>
+                  <option value="in-school">In-school theatre & visual arts program</option>
+                  <option value="after-school">After-school enrichment</option>
+                  <option value="workshop">One-day workshop</option>
+                  <option value="performance">School performance</option>
+                  <option value="professional-development">Teacher professional development</option>
+                  <option value="custom">Custom program</option>
+                </select>
+                <textarea name="message" placeholder="Tell us about your students, grade levels, timeline, and goals." rows="5"></textarea>
+                <button type="button" className="primary-button">
+                  Submit Interest Form
+                </button>
+                <p className="form-note">
+                  Form connection coming soon. For now, please email R.Mitchell@JawboneHillTheatre.org.
+                </p>
+              </form>
+            </div>
+
+            <div className="donation-card">
+              <div>
+                <p className="eyebrow">Support Student Theatre</p>
+                <h3>Help bring theatre, storytelling, and arts education to more students.</h3>
+                <p>
+                  We are preparing a secure donation portal for supporters of our school theatre programs.
+                </p>
+              </div>
+              <a className="secondary-button" href="#contact">
+                Donation Portal Coming Soon
+              </a>
+            </div>
+          </div>
+        </section>
         <section id="gallery" className="section section-soft">
           <div className="container">
             <SectionHeading
@@ -450,14 +587,68 @@ function App() {
           </div>
         </section>
       </main>
+      {leadPopupOpen ? (
+        <div className="lead-popup-backdrop">
+          <div className="lead-popup">
+            <button
+              type="button"
+              className="lead-popup-close"
+              onClick={() => setLeadPopupOpen(false)}
+              aria-label="Close popup"
+            >
+              ×
+            </button>
 
+            <p className="eyebrow">School Partnership Inquiry</p>
+            <h2>Bring theatre and visual arts to your school.</h2>
+            <p>
+              Jawbone Hill Theatre is developing school partnerships for charter schools,
+              arts academies, libraries, and community programs interested in theatre-based
+              learning, storytelling, visual arts, and student showcase experiences.
+            </p>
+
+            <form className="lead-popup-form">
+              <input type="text" placeholder="School or organization name" />
+              <input type="text" placeholder="Contact person" />
+              <input type="email" placeholder="Email address" />
+              <input type="tel" placeholder="Phone number" />
+              <select defaultValue="">
+                <option value="" disabled>Program interest</option>
+                <option value="charter-school">Charter School Arts & VAPA Program</option>
+                <option value="after-school">After-school enrichment</option>
+                <option value="workshop">One-day theatre workshop</option>
+                <option value="library">Library or community program</option>
+                <option value="custom">Custom school partnership</option>
+              </select>
+              <textarea
+                rows="4"
+                placeholder="Tell us about your school, grade levels, timeline, and goals."
+              />
+              <button type="button" className="button primary full-width">
+                Submit Inquiry
+              </button>
+              <p className="form-note">
+                Form connection coming soon. For now, please email info@jawbonehilltheatre.org.
+              </p>
+            </form>
+          </div>
+        </div>
+      ) : null}
       <footer className="site-footer">
         <div className="container footer-inner">
-          <p>© {year} Jawbone Hill Theatre. All rights reserved.</p>
+          <p>© {year} Jawbone Hill Theatre, a 501(c)(3) nonprofit organization. Website support by Marinia Group.</p>
           <div className="footer-links">
             <a href="#about">About</a>
             <a href="#programs">Programs</a>
-            <a href="#director">Rahab Mitchell</a>
+            <a href="#schools">Schools</a>
+            <a href="#director">Theatre Director</a>
+            <a
+              href="https://about.me/shani_sambrano/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Executive Director
+            </a>
             <a href="#contact">Contact</a>
           </div>
         </div>
