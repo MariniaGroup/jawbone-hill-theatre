@@ -15,6 +15,19 @@ const navItems = [
 ]
 
 const galleryImages = [
+  '/jawbone/box_truck.png',
+  '/jawbone/conference_booth.png',
+  '/jawbone/costumes1.png',
+  '/jawbone/crew_backstage.png',
+  '/jawbone/drama_workshop1.png',
+  '/jawbone/Grand_Finale.png',
+  '/jawbone/lighting1.png',
+  '/jawbone/outdoor_tent.png',
+  '/jawbone/outdoor_tent_and_staff3.png',
+  '/jawbone/set_building1.png',
+  '/jawbone/staff_at_booth.png',
+  '/jawbone/staff_at_booth2.png',
+  '/jawbone/staff_at_outdoor_tent.png',
   '/jawbone/IMG_1709.jpg',
   '/jawbone/IMG_1710.jpg',
   '/jawbone/IMG_20231215_190803759_MP.jpg',
