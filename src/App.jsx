@@ -3,15 +3,14 @@ import { useEffect, useMemo, useState } from 'react'
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
+  { label: 'Shows', href: '#shows' },
+  { label: 'Tickets', href: '#tickets' },
   { label: 'Programs', href: '#programs' },
   { label: 'Schools', href: '#schools' },
+  { label: 'Volunteer', href: '#volunteer' },
+  { label: 'Audition', href: '#audition' },
+  { label: 'Advertise', href: '#advertise' },
   { label: 'Gallery', href: '#gallery' },
-  { label: 'Theatre Director', href: '#director' },
-  {
-    label: 'Executive Director',
-    href: 'https://about.me/shani_sambrano/',
-    external: true,
-  },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -191,10 +190,10 @@ function App() {
           </div>
 
           <div className="container hero-center-content">
-            <div className="hero-logo-feature">
-              <img
-                src="/jawbone/Jawbone_Hill_Logo_New.png"
-                alt="Jawbone Hill Theatre logo"
+            <div className="hero-logo-feature hero-logo-video-feature">
+              <HeroVideo
+                src="/jawbone/JHT_Logo4.mp4"
+                className="hero-logo-video"
               />
             </div>
 
@@ -274,7 +273,125 @@ function App() {
             />
           </div>
         </section>
+        <section id="shows" className="section">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Upcoming Shows"
+              title="Upcoming productions, showcases, and community events."
+              text="Jawbone Hill Theatre is preparing future performances, student showcases, workshops, and community storytelling events. Upcoming show dates, venues, ticket links, and audition announcements will be posted here."
+              center
+            />
 
+            <div className="shows-grid">
+              <article className="show-card featured-show-card">
+                <p className="show-status">Coming Soon</p>
+                <h3>Next Mainstage Production</h3>
+                <p>
+                  Details for Jawbone Hill Theatre’s next production will be announced soon,
+                  including show dates, venue information, ticket availability, cast details,
+                  and playbill advertising opportunities.
+                </p>
+                <a href="#tickets" className="button primary">
+                  Ticket Info Coming Soon
+                </a>
+              </article>
+
+              <article className="show-card">
+                <p className="show-status">School Program</p>
+                <h3>Student Showcase Events</h3>
+                <p>
+                  Future school-based programs may include final student showcases featuring
+                  theatre, storytelling, spoken word, visual arts, and performance-based literacy projects.
+                </p>
+                <a href="#schools" className="button secondary">
+                  Explore School Programs
+                </a>
+              </article>
+
+              <article className="show-card">
+                <p className="show-status">Community Events</p>
+                <h3>Workshops & Storytelling Events</h3>
+                <p>
+                  Community workshops, library programs, puppetry events, and storytelling experiences
+                  will be added as dates and partner locations are confirmed.
+                </p>
+                <a href="#contact" className="button secondary">
+                  Partner With Us
+                </a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="tickets" className="section section-soft">
+          <div className="container two-column-layout">
+            <div>
+              <SectionHeading
+                eyebrow="Tickets"
+                title="Reserve tickets for future Jawbone Hill Theatre events."
+                text="Ticketing will open when upcoming productions, showcases, workshops, or community events are scheduled. Visitors will be able to select an event, reserve seats, and purchase tickets through a secure ticketing or payment portal."
+              />
+
+              <div className="stacked-cards">
+                <article className="content-card">
+                  <h3>Ticket Portal Coming Soon</h3>
+                  <p>
+                    Online ticket purchasing will be added when the next production or event is announced.
+                    Until then, visitors may join the interest list or contact Jawbone Hill Theatre for
+                    performance, partnership, and event information.
+                  </p>
+                </article>
+
+                <article className="content-card">
+                  <h3>Group Tickets & School Events</h3>
+                  <p>
+                    Schools, community organizations, and groups may contact Jawbone Hill Theatre about
+                    future group attendance, school showcases, student performances, and community events.
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            <div className="form-shell portal-form-shell">
+              <h3>Ticket Interest Form</h3>
+              <p>
+                Join the interest list to be notified when tickets become available for upcoming shows,
+                workshops, showcases, or community events.
+              </p>
+
+              <form className="contact-form">
+                <input type="text" placeholder="First name" />
+                <input type="text" placeholder="Last name" />
+                <input type="email" placeholder="Email address" className="full-width" />
+                <input type="tel" placeholder="Phone number" className="full-width" />
+
+                <select className="full-width" defaultValue="">
+                  <option value="" disabled>Ticket interest</option>
+                  <option value="mainstage">Mainstage productions</option>
+                  <option value="student-showcase">Student showcases</option>
+                  <option value="workshops">Workshops</option>
+                  <option value="library-events">Library or community events</option>
+                  <option value="group-tickets">Group tickets</option>
+                  <option value="sponsorship">Sponsorship or VIP tickets</option>
+                </select>
+
+                <textarea
+                  placeholder="Tell us what type of event you are interested in attending."
+                  className="full-width"
+                  rows="6"
+                />
+
+                <button type="button" className="button primary full-width">
+                  Join Ticket Interest List
+                </button>
+
+                <p className="form-note full-width">
+                  Ticketing connection coming soon. For immediate event inquiries, please email info@jawbonehilltheatre.org.
+                </p>
+              </form>
+            </div>
+          </div>
+        </section>
         <section id="programs" className="section">
           <div className="container">
             <SectionHeading
@@ -424,7 +541,7 @@ function App() {
                   Submit Interest Form
                 </button>
                 <p className="form-note">
-                  Form connection coming soon. For now, please email R.Mitchell@JawboneHillTheatre.org.
+                  Form connection coming soon. For immediate inquiries, please email info@jawbonehilltheatre.org.
                 </p>
               </form>
             </div>
@@ -443,12 +560,335 @@ function App() {
             </div>
           </div>
         </section>
+        <section id="volunteer" className="section">
+          <div className="container two-column-layout">
+            <div>
+              <SectionHeading
+                eyebrow="Volunteer Portal"
+                title="Help bring theatre, storytelling, and arts education to the community."
+                text="Jawbone Hill Theatre welcomes volunteers who want to support productions, school programs, workshops, playbills, front-of-house operations, community outreach, and nonprofit events."
+              />
+
+              <div className="stacked-cards">
+                <article className="content-card">
+                  <h3>Ways to Volunteer</h3>
+                  <p>
+                    Volunteers may help with ushering, check-in, backstage support, event setup,
+                    school showcases, workshop preparation, photography, videography, lighting,
+                    audio, set design, set building, props, costumes, playbill distribution,
+                    community outreach, fundraising events, and administrative support.
+                  </p>
+                </article>
+
+                <article className="content-card">
+                  <h3>Who Can Register?</h3>
+                  <p>
+                    Students, parents, educators, artists, retirees, theatre lovers, community members,
+                    and supporters of arts education are welcome to submit a volunteer interest form.
+                    Youth volunteers may require parent or guardian permission.
+                  </p>
+                </article>
+
+                <article className="content-card">
+                  <h3>Production & Creative Support</h3>
+                  <p>
+                    Jawbone Hill Theatre also welcomes volunteers with creative and technical skills,
+                    including photography, videography, lighting, audio, set design, set building,
+                    props, costumes, stage management, and behind-the-scenes production support.
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            <div className="form-shell portal-form-shell">
+              <h3>Volunteer Registration</h3>
+              <p>
+                Register your interest in volunteering with Jawbone Hill Theatre. A team member will
+                follow up when volunteer opportunities are available.
+              </p>
+
+              <form className="contact-form">
+                <input type="text" placeholder="First name" />
+                <input type="text" placeholder="Last name" />
+                <input type="email" placeholder="Email address" className="full-width" />
+                <input type="tel" placeholder="Phone number" />
+                <input type="text" placeholder="City" />
+
+                <select className="full-width" defaultValue="">
+                  <option value="" disabled>Volunteer area of interest</option>
+                  <option value="front-of-house">Front-of-house / ushering</option>
+                  <option value="events">Event setup and support</option>
+                  <option value="school-programs">School programs and showcases</option>
+                  <option value="backstage">Backstage / production support</option>
+                  <option value="photography">Photography</option>
+                  <option value="videography">Videography</option>
+                  <option value="lighting">Lighting</option>
+                  <option value="audio">Audio / sound support</option>
+                  <option value="set-design">Set design</option>
+                  <option value="set-building">Set building</option>
+                  <option value="props">Props</option>
+                  <option value="costumes">Costumes / wardrobe</option>
+                  <option value="playbill">Playbill distribution or ad support</option>
+                  <option value="outreach">Community outreach</option>
+                  <option value="admin">Administrative support</option>
+                  <option value="fundraising">Fundraising or sponsorship support</option>
+                </select>
+
+                <select className="full-width" defaultValue="">
+                  <option value="" disabled>Availability</option>
+                  <option value="weekdays">Weekdays</option>
+                  <option value="evenings">Evenings</option>
+                  <option value="weekends">Weekends</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+
+                <textarea
+                  placeholder="Tell us about your skills, interests, experience, and availability."
+                  className="full-width"
+                  rows="6"
+                />
+
+                <button type="button" className="button primary full-width">
+                  Submit Volunteer Registration
+                </button>
+
+                <p className="form-note full-width">
+                  Form connection coming soon. For immediate volunteer inquiries, please email info@jawbonehilltheatre.org.
+                </p>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section id="audition" className="section section-soft">
+          <div className="container two-column-layout reverse-mobile">
+            <div className="form-shell portal-form-shell">
+              <h3>Audition Submission Portal</h3>
+              <p>
+                Actors, performers, storytellers, teaching artists, and community artists may submit
+                interest for future productions, workshops, school showcases, and theatre education programs.
+              </p>
+
+              <form className="contact-form">
+                <input type="text" placeholder="First name" />
+                <input type="text" placeholder="Last name" />
+                <input type="email" placeholder="Email address" className="full-width" />
+                <input type="tel" placeholder="Phone number" />
+                <input type="text" placeholder="City" />
+
+                <select className="full-width" defaultValue="">
+                  <option value="" disabled>Submission type</option>
+                  <option value="actor">Actor / performer</option>
+                  <option value="storyteller">Storyteller / spoken word artist</option>
+                  <option value="singer">Singer / musical performer</option>
+                  <option value="dancer">Dancer / movement artist</option>
+                  <option value="puppeteer">Puppeteer</option>
+                  <option value="teaching-artist">Teaching artist</option>
+                  <option value="crew">Production crew / backstage</option>
+                </select>
+
+                <input type="url" placeholder="Audition reel link: YouTube, Vimeo, Google Drive, etc." className="full-width" />
+                <input type="url" placeholder="Headshot or photo link" className="full-width" />
+                <input type="url" placeholder="Resume, portfolio, or website link" className="full-width" />
+
+                <label className="file-upload-label full-width">
+                  Upload audition reel or video file
+                  <input type="file" accept="video/*" />
+                </label>
+
+                <label className="file-upload-label full-width">
+                  Upload headshot or performance photo
+                  <input type="file" accept="image/*" />
+                </label>
+
+                <label className="file-upload-label full-width">
+                  Upload resume or performer bio
+                  <input type="file" accept=".pdf,.doc,.docx,image/*" />
+                </label>
+
+                <textarea
+                  placeholder="Tell us about your theatre, acting, storytelling, music, dance, teaching, or production experience."
+                  className="full-width"
+                  rows="6"
+                />
+
+                <button type="button" className="button primary full-width">
+                  Submit Audition Materials
+                </button>
+
+                <p className="form-note full-width">
+                  Upload connection coming soon. For immediate audition inquiries, please email info@jawbonehilltheatre.org.
+                </p>
+              </form>
+            </div>
+
+            <div>
+              <SectionHeading
+                eyebrow="Auditions"
+                title="Submit materials for future productions, showcases, and community storytelling projects."
+                text="Jawbone Hill Theatre is building a creative network of actors, performers, storytellers, teaching artists, and production collaborators for future shows, school programs, workshops, and community arts events."
+              />
+
+              <div className="mini-grid two-up">
+                <div className="mini-card">
+                  <h4>Performers</h4>
+                  <p>
+                    Submit interest for acting, storytelling, spoken word, movement, singing,
+                    puppetry, community theatre productions, and showcase opportunities.
+                  </p>
+                </div>
+
+                <div className="mini-card">
+                  <h4>Teaching Artists</h4>
+                  <p>
+                    Artists with school, youth arts, theatre education, literacy, or community
+                    programming experience may connect for future school-based programs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="advertise" className="section">
+          <div className="container">
+            <SectionHeading
+              eyebrow="Playbill Advertising"
+              title="Advertise your business in Jawbone Hill Theatre playbills."
+              text="Local businesses, sponsors, community organizations, and supporters may reserve advertising space in future playbills, event programs, and digital theatre materials."
+              center
+            />
+
+            <div className="ad-pricing-grid">
+              <article className="ad-price-card">
+                <p className="ad-size">Business Card</p>
+                <h3>$50</h3>
+                <p>Best for small businesses, family messages, artists, and local supporters.</p>
+                <span>Approx. 3.5” x 2”</span>
+              </article>
+
+              <article className="ad-price-card">
+                <p className="ad-size">Quarter Page</p>
+                <h3>$75</h3>
+                <p>A strong entry-level ad for local businesses and community organizations.</p>
+                <span>Approx. 2.5” x 4” or equivalent</span>
+              </article>
+
+              <article className="ad-price-card featured-ad-card">
+                <p className="ad-size">Half Page</p>
+                <h3>$125</h3>
+                <p>Recommended for businesses that want stronger visibility in the playbill.</p>
+                <span>Approx. 5” x 4”</span>
+              </article>
+
+              <article className="ad-price-card">
+                <p className="ad-size">Full Page</p>
+                <h3>$200</h3>
+                <p>Best for sponsors, featured partners, and businesses wanting maximum visibility.</p>
+                <span>Approx. 5” x 8”</span>
+              </article>
+
+              <article className="ad-price-card">
+                <p className="ad-size">Premium Sponsor Page</p>
+                <h3>$300</h3>
+                <p>Premium placement for major sponsors, subject to availability by production.</p>
+                <span>Placement confirmed before payment</span>
+              </article>
+            </div>
+
+            <div className="two-column-layout ad-portal-layout">
+              <div>
+                <div className="stacked-cards">
+                  <article className="content-card">
+                    <h3>How Playbill Advertising Works</h3>
+                    <p>
+                      Businesses submit an ad request, choose an ad size, upload artwork, and receive
+                      confirmation when a production or community event is accepting ads. Payment links
+                      will be provided once an upcoming show is scheduled and ad space is confirmed.
+                    </p>
+                  </article>
+
+                  <article className="content-card">
+                    <h3>Artwork Guidelines</h3>
+                    <p>
+                      Preferred ad files include high-resolution PDF, PNG, or JPG. Artwork should be clear,
+                      print-ready, and submitted before the production deadline. If needed, sponsors may
+                      submit a logo, text, and contact information for basic layout assistance.
+                    </p>
+                  </article>
+
+                  <article className="content-card">
+                    <h3>Payment Notice</h3>
+                    <p>
+                      Online payment will open when a production is actively accepting playbill ads.
+                      Until then, businesses may submit interest and upload artwork for review.
+                    </p>
+                  </article>
+                </div>
+              </div>
+
+              <div className="form-shell portal-form-shell">
+                <h3>Playbill Ad Submission</h3>
+                <p>
+                  Submit your business information and preferred ad size. Payment instructions will be
+                  sent when an upcoming production is accepting playbill ads.
+                </p>
+
+                <form className="contact-form">
+                  <input type="text" placeholder="Business or organization name" className="full-width" />
+                  <input type="text" placeholder="Contact person" />
+                  <input type="email" placeholder="Email address" />
+                  <input type="tel" placeholder="Phone number" className="full-width" />
+                  <input type="url" placeholder="Business website or social media link" className="full-width" />
+
+                  <select className="full-width" defaultValue="">
+                    <option value="" disabled>Select ad size</option>
+                    <option value="business-card">Business Card - $50</option>
+                    <option value="quarter-page">Quarter Page - $75</option>
+                    <option value="half-page">Half Page - $125</option>
+                    <option value="full-page">Full Page - $200</option>
+                    <option value="premium">Premium Sponsor Page - $300</option>
+                  </select>
+
+                  <label className="file-upload-label full-width">
+                    Upload ad artwork: PDF, PNG, or JPG
+                    <input type="file" accept=".pdf,image/png,image/jpeg" />
+                  </label>
+
+                  <label className="file-upload-label full-width">
+                    Upload logo or supporting image
+                    <input type="file" accept="image/*" />
+                  </label>
+
+                  <textarea
+                    placeholder="Tell us what you are advertising, preferred show/event, and any notes for the playbill."
+                    className="full-width"
+                    rows="6"
+                  />
+
+                  <button type="button" className="button primary full-width">
+                    Submit Advertising Interest
+                  </button>
+
+                  <button type="button" className="button secondary full-width">
+                    Payment Portal Coming Soon
+                  </button>
+
+                  <p className="form-note full-width">
+                    Payment will be accepted only after ad space is confirmed for an upcoming production.
+                    For immediate advertising inquiries, please email info@jawbonehilltheatre.org.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
         <section id="gallery" className="section section-soft">
           <div className="container">
             <SectionHeading
               eyebrow="Gallery"
               title="Moments from the stage, rehearsal room, and community experience."
-              text="This gallery points to your Camp Nelson production photos and community sock puppet workshop images so you can keep growing the site as new events are added."
+              text="Explore photos from Jawbone Hill Theatre productions, rehearsals, workshops, storytelling events, and community arts experiences."
               center
             />
 
@@ -500,7 +940,19 @@ function App() {
                   multiple mediums.
                 </p>
               </div>
-
+              <div className="leadership-links">
+                <a className="button secondary" href="#director">
+                  Theatre Director: Rahab Mitchell
+                </a>
+                <a
+                  className="button secondary"
+                  href="https://about.me/shani_sambrano/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Executive Director: Shani Sambrano
+                </a>
+              </div>
               <div className="mini-grid two-up">
                 <div className="mini-card">
                   <h4>Artistic leadership</h4>
@@ -548,7 +1000,7 @@ function App() {
               <SectionHeading
                 eyebrow="Contact"
                 title="Book, partner, donate, or connect with Jawbone Hill Theatre."
-                text="The contact section is ready to deploy now. You can replace the placeholder details with the official organization email, phone number, address, donation link, ticketing page, and social media profiles anytime."
+                text="Contact Jawbone Hill Theatre to learn more about performances, school partnerships, theatre workshops, volunteer opportunities, auditions, playbill advertising, donations, and community arts programming."
               />
 
               <div className="contact-cards">
@@ -568,10 +1020,10 @@ function App() {
             </div>
 
             <div className="form-shell">
-              <h3>Quick inquiry form</h3>
+              <h3>Quick Inquiry Form</h3>
               <p>
-                This front-end form is styled and ready. Later we can wire it to Formspree, AWS
-                Lambda, or another contact workflow.
+                Use this form to request information about performances, school partnerships,
+                volunteer opportunities, auditions, playbill advertising, donations, or community programs.
               </p>
               <form className="contact-form">
                 <input type="text" placeholder="First name" />
@@ -628,7 +1080,7 @@ function App() {
                 Submit Inquiry
               </button>
               <p className="form-note">
-                Form connection coming soon. For now, please email info@jawbonehilltheatre.org.
+                Form connection coming soon. For immediate inquiries, please email info@jawbonehilltheatre.org.
               </p>
             </form>
           </div>
@@ -639,16 +1091,12 @@ function App() {
           <p>© {year} Jawbone Hill Theatre, a 501(c)(3) nonprofit organization. Website support by Marinia Group.</p>
           <div className="footer-links">
             <a href="#about">About</a>
-            <a href="#programs">Programs</a>
+            <a href="#shows">Shows</a>
+            <a href="#tickets">Tickets</a>
             <a href="#schools">Schools</a>
-            <a href="#director">Theatre Director</a>
-            <a
-              href="https://about.me/shani_sambrano/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Executive Director
-            </a>
+            <a href="#volunteer">Volunteer</a>
+            <a href="#audition">Audition</a>
+            <a href="#advertise">Advertise</a>
             <a href="#contact">Contact</a>
           </div>
         </div>
