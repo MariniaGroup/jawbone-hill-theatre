@@ -945,12 +945,18 @@ function App() {
                 <p>
                   Her experience also includes teaching, tutoring, special education reading
                   support, veterinary care, cable television production, and visual art across
-                  multiple mediums.
+                  multiple mediums. She also earned a Community Teaching Artist Certificate
+                  through Cal State LA's College of Professional and Global Education in 2023.
                 </p>
               </div>
               <div className="leadership-links">
-                <a className="button secondary" href="#director">
-                  Theatre Director: Rahab Mitchell
+                <a
+                  className="button secondary"
+                  href="https://jawbonehilltheatre.wixsite.com/rahab"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Theatre Director Bio: Rahab Mitchell
                 </a>
                 <a
                   className="button secondary"

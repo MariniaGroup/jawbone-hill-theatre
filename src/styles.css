@@ -1183,14 +1183,24 @@ video {
 }
 
 #director .feature-image.tall {
+  width: 100%;
   max-width: 280px;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  align-self: start;
   justify-self: center;
 }
 
 #director .feature-image.tall img {
   width: 100%;
-  max-height: 420px;
+  height: auto;
+  max-height: 360px;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   border-radius: 24px;
+}
+
+#director .site-image.feature-image.tall {
+  aspect-ratio: auto;
 }
