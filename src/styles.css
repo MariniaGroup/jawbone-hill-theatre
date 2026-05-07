@@ -1181,3 +1181,16 @@ video {
   gap: 12px;
   margin-top: 1.5rem;
 }
+
+#director .feature-image.tall {
+  max-width: 280px;
+  justify-self: center;
+}
+
+#director .feature-image.tall img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 24px;
+}

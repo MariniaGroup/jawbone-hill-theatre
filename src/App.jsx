@@ -20,10 +20,9 @@ const galleryImages = [
   '/jawbone/costumes1.png',
   '/jawbone/crew_backstage.png',
   '/jawbone/drama_workshop1.png',
-  '/jawbone/Grand_Finale.png',
-  '/jawbone/lighting1.png',
+  '/jawbone/lighting_1.png',
   '/jawbone/outdoor_tent.png',
-  '/jawbone/outdoor_tent_and_staff3.png',
+  '/jawbone/outdoortentstaff3.png',
   '/jawbone/set_building1.png',
   '/jawbone/staff_at_booth.png',
   '/jawbone/staff_at_booth2.png',
@@ -31,12 +30,8 @@ const galleryImages = [
   '/jawbone/IMG_1709.jpg',
   '/jawbone/IMG_1710.jpg',
   '/jawbone/IMG_20231215_190803759_MP.jpg',
-  '/jawbone/IMG_20231215_193807936.jpg',
-  '/jawbone/IMG_20231215_193813457_MP.jpg',
   '/jawbone/IMG_20231216_190827654.jpg',
-  '/jawbone/IMG_20231216_191133196.jpg',
   '/jawbone/IMG_20231216_201749077.jpg',
-  '/jawbone/IMG_20231216_201823858.jpg',
   '/jawbone/IMG_20231216_201923211_MP.jpg',
   '/jawbone/IMG_20231216_201925483_BURST000_COVER_TOP.jpg',
   '/jawbone/IMG_20231216_202157629.jpg',
@@ -48,7 +43,7 @@ const galleryImages = [
   '/jawbone/IMG-5838.jpg',
   '/jawbone/IMG-5840.jpg',
   '/jawbone/IMG-5841.jpg',
-  '/jawbone/IMG-5842.jpg',
+  '/jawbone/puppet_kid.png',
   '/jawbone/IMG-5843.jpg',
   '/jawbone/IMG-5844.jpg',
   '/jawbone/IMG-5845.jpg',
@@ -280,9 +275,8 @@ function App() {
             </div>
 
             <SiteImage
-              src="/jawbone/IMG_20231216_201823858.jpg"
-              alt="Jawbone Hill Theatre community performance"
-              className="feature-image tall"
+              src="/jawbone/musical.png"
+              alt="Students performing in a musical on stage"
             />
           </div>
         </section>
@@ -300,7 +294,7 @@ function App() {
                 <p className="show-status">Coming Soon</p>
                 <h3>Next Mainstage Production</h3>
                 <p>
-                  Details for Jawbone Hill Theatre’s next production will be announced soon,
+                  Details for Jawbone Hill Theatre's next production will be announced soon,
                   including show dates, venue information, ticket availability, cast details,
                   and playbill advertising opportunities.
                 </p>
@@ -416,9 +410,9 @@ function App() {
 
             <div className="program-grid">
               <article className="program-card">
-                <SiteImage src="/jawbone/IMG_20231216_191133196.jpg" alt="Mainstage productions" className="program-image" />
+                <SiteImage src="/jawbone/public_speaking1.png" alt="Youth public speaking on stage" className="program-image" />
                 <div className="program-copy">
-                  <h3>Mainstage Productions</h3>
+                  <h3>Public Speaking & Stage Confidence</h3>
                   <p>
                     A diverse repertoire of plays and theatre pieces designed to entertain,
                     educate, and reflect a rich range of voices and perspectives.
@@ -427,7 +421,7 @@ function App() {
               </article>
 
               <article className="program-card">
-                <SiteImage src="/jawbone/IMG-5842.jpg" alt="Theatre workshops" className="program-image" />
+                <SiteImage src="/jawbone/puppet_kid.png" alt="Youth puppet-making workshop" className="program-image" />
                 <div className="program-copy">
                   <h3>Theatre Workshops</h3>
                   <p>
@@ -438,12 +432,13 @@ function App() {
               </article>
 
               <article className="program-card">
-                <SiteImage src="/jawbone/IMG_20231215_190803759_MP.jpg" alt="Storytelling and digital productions" className="program-image" />
+                <SiteImage src="/jawbone/community_impact.png" alt="Intergenerational community theatre impact" className="program-image" />
                 <div className="program-copy">
-                  <h3>Storytelling & Digital Projects</h3>
+                  <h3>Community Arts & Cultural Connection</h3>
                   <p>
-                    Original stage works and community storytelling projects adapted and extended
-                    for broader audiences and new creative opportunities.
+                    Shared theatre and storytelling experiences that bring students, families,
+                    artists, and community members together through creativity, performance,
+                    and cultural exchange.
                   </p>
                 </div>
               </article>
