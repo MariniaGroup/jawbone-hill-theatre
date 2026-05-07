@@ -250,7 +250,7 @@ function App() {
               />
 
               <p className="section-text">
-                Jawbone Hill Theatre was co-founded by Rahab Mitchell and Shani Sambrano to expand access to theatre, storytelling, arts education, and community-based creative programming.
+                Jawbone Hill Theatre was co-founded by Theatre Director Rahab Mitchell and Executive Director Shani Sambrano to expand access to theatre, storytelling, arts education, and community-based creative programming.
               </p>
 
               <div className="stacked-cards">
@@ -949,22 +949,26 @@ function App() {
                   through Cal State LA's College of Professional and Global Education in 2023.
                 </p>
               </div>
+              <p className="link-helper-text">View leadership bios:</p>
               <div className="leadership-links">
                 <a
-                  className="button secondary"
+                  className="button secondary link-button"
                   href="https://jawbonehilltheatre.wixsite.com/rahab"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="View Rahab Mitchell theatre director bio"
                 >
-                  Theatre Director Bio: Rahab Mitchell
+                  View Rahab Mitchell Bio <span aria-hidden="true">↗</span>
                 </a>
+
                 <a
-                  className="button secondary"
+                  className="button secondary link-button"
                   href="https://about.me/shani_sambrano/"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="View Shani Sambrano executive director bio"
                 >
-                  Executive Director: Shani Sambrano
+                  View Shani Sambrano Bio <span aria-hidden="true">↗</span>
                 </a>
               </div>
               <div className="mini-grid two-up">

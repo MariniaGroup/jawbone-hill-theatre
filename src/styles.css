@@ -1204,3 +1204,48 @@ video {
 #director .site-image.feature-image.tall {
   aspect-ratio: auto;
 }
+
+.ad-portal-layout {
+  align-items: start;
+}
+
+.ad-portal-layout .stacked-cards {
+  margin-top: 0;
+  align-self: start;
+}
+
+.ad-portal-layout .form-shell {
+  align-self: start;
+}
+
+.link-button {
+  cursor: pointer;
+  border-color: rgba(202, 169, 106, 0.55);
+  color: #f0ddbc;
+  box-shadow: 0 0 0 1px rgba(202, 169, 106, 0.12);
+}
+
+.link-button span {
+  display: inline-block;
+  margin-left: 0.35rem;
+  transition: transform 0.2s ease;
+}
+
+.link-button:hover {
+  background: rgba(202, 169, 106, 0.12);
+  border-color: rgba(202, 169, 106, 0.85);
+  transform: translateY(-1px);
+}
+
+.link-button:hover span {
+  transform: translate(2px, -2px);
+}
+
+.link-helper-text {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+}
